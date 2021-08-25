@@ -1,0 +1,5 @@
+CREATE TABLE TASKS (
+    taskId NUMERIC PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    description VARCHAR,
+    isCompleted BOOLEAN
+);
