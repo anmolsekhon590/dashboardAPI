@@ -17,7 +17,7 @@ public class DatabaseAccess {
 
     public List<Task> getAllTasks() {
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-        String query = "SELECT * FROM Tasks";
+        String query = "SELECT * FROM TASKS";
 
         return jdbc.query(query, namedParameters, new BeanPropertyRowMapper<Task>(Task.class));
     }
