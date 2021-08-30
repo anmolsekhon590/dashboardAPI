@@ -27,4 +27,9 @@ public class TaskController {
     public void updateTask(@RequestBody Task task) {
         da.updateTask(task);
     }
+
+    @PostMapping("/task")
+    public void addTask(@RequestBody Task task) {
+        da.addTask(task);
+    }
 }

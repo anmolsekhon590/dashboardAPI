@@ -33,4 +33,14 @@ public class DatabaseAccess {
         jdbc.update(query, namedParameters);
     }
 
+    public void addTask(Task task) {
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        String query = "INSERT INTO TASKS (description, isCompleted) VALUES (:description, :isCompleted)";
+
+        namedParameters.addValue("description", task.getDescription());
+        namedParameters.addValue("isCompleted", task.getIsCompleted());
+
+        jdbc.update(query, namedParameters);
+    }
+
 }
