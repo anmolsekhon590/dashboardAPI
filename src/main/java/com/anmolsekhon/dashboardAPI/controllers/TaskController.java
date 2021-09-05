@@ -13,7 +13,7 @@ import java.util.List;
 public class TaskController {
 
     @Autowired
-    public DatabaseAccess da;
+    protected DatabaseAccess da;
 
     @GetMapping("/task")
     public String getAllTasks() {
@@ -21,6 +21,19 @@ public class TaskController {
         Gson gson = new Gson();
 
         return gson.toJson(tasks);
+    }
+
+    @GetMapping("/task/{id}")
+    public String getTaskById(@PathVariable Long id) {
+        Gson gson = new Gson();
+        try {
+            Task task = da.getTaskById(id);
+            return gson.toJson(task);
+        } catch (IndexOutOfBoundsException exception) {
+            System.out.println(exception);
+            return "{}";
+        }
+
     }
 
     @PutMapping("/task")
